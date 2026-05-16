@@ -46,6 +46,9 @@ run_dev() {
     echo -e "-------------------------------------------"
     echo -e "${CYAN}Note: Both links are active and synced.${NC}\n"
     
+    # Export IP for Next.js allowedDevOrigins
+    export NEXT_PUBLIC_LOCAL_IP=$IP
+    
     npm run dev -- -H 0.0.0.0
 }
 
