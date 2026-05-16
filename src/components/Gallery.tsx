@@ -60,9 +60,6 @@ export default function Facilities() {
               At Stellaar, every detail is crafted to bring together luxury, wellness, dining, entertainment, and community under one roof.
             </p>
           </div>
-          <div className="mt-4 md:mt-0">
-            <span className="text-3xl md:text-6xl font-bold text-zinc-900 select-none">EST. 2026</span>
-          </div>
         </div>
 
         {/* Tour of Stellaar Video Section - Side by Side Layout */}
