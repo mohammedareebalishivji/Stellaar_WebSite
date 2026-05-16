@@ -16,7 +16,7 @@ export default function Hero() {
         className="absolute min-w-full min-h-full object-cover opacity-60"
         >
 
-          <source src="/assets/STELLAAR CLUB.mp4" type="video/mp4" />
+          <source src="/assets/Intro_video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
