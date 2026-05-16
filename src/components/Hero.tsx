@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -10,7 +11,7 @@ export default function Hero() {
     const video = videoRef.current
     if (video) {
       video.muted = true
-      
+
       const attemptPlay = () => {
         video.play().catch(() => {
           console.log("Autoplay waiting for interaction")
@@ -41,20 +42,20 @@ export default function Hero() {
           muted
           playsInline
           preload="auto"
-          poster="/assets/Swimming_Pool.jpeg"
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          poster="/assets/Pool.png"
+          className="absolute inset-0 w-full h-full object-cover opacity-90 brightness-[2.0]"
         >
           <source src="/assets/Intro_video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        
+
         {/* Luxury Overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black z-[1]" />
         <div className="absolute inset-0 bg-black/50 z-[1]" />
-        
+
         {/* Extra grain/texture for premium feel */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-[1] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-        
+
         {/* Glow Effects */}
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#D4AF37]/10 blur-[120px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-[#D4AF37]/10 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
@@ -65,15 +66,25 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
+          className="flex flex-col items-center"
         >
           <span className="text-[10px] sm:text-xs md:text-base font-mono tracking-[0.15em] md:tracking-[0.3em] text-[#D4AF37] uppercase mb-4 block">
             NAGPUR&apos;S NEW LIFESTYLE DESTINATION
           </span>
-          <h1 className="text-3xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-6 text-white uppercase italic leading-none">
-            <span className="text-[#D4AF37]">STELLAAR</span>
-          </h1>
+          <div className="mb-2 w-full flex justify-center overflow-hidden">
+            <div className="relative h-20 sm:h-32 md:h-44 lg:h-56 w-full flex justify-center items-center">
+              <Image 
+                src="/assets/Logo_no_Back.png"
+                alt="Stellaar Logo"
+                width={1200}
+                height={400}
+                className="w-auto h-full scale-[1.6] object-contain drop-shadow-[0_0_25px_rgba(212,175,55,0.5)] transform-gpu"
+                priority
+              />
+            </div>
+          </div>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,7 +110,7 @@ export default function Hero() {
           </a>
         </motion.div>
       </div>
-      
+
       {/* Decorative Bottom Line */}
       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
     </section>

@@ -53,7 +53,7 @@ export default function Membership() {
 
   return (
     <section id="membership" className="py-20 md:py-32 px-4 md:px-12 bg-black relative">
-      <div className="absolute inset-0 bg-[url('/assets/Poster_1.jpeg')] bg-cover bg-center opacity-[0.03] select-none pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('/assets/Poster_New.png')] bg-cover bg-center opacity-[0.03] select-none pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-12 md:mb-20">

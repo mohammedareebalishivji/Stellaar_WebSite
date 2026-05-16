@@ -6,7 +6,7 @@ import Image from 'next/image'
 const facilities = [
   { 
     id: 1, 
-    src: '/assets/Swimming_Pool.jpeg', 
+    src: '/assets/Pool.png', 
     title: 'Swimming Pool', 
     description: 'Pristine waters for relaxation and fitness. Nagpur’s most premium aquatic experience.',
     tag: 'NOW OPEN' 
@@ -81,7 +81,7 @@ export default function Facilities() {
               <video
                 controls
                 className="max-w-full h-auto"
-                poster="/assets/Poster_1.jpeg"
+                poster="/assets/Poster_New.png"
               >
                 <source src="/assets/STELLAAR CLUB.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
