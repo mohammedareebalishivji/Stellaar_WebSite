@@ -1,17 +1,46 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (video) {
+      video.muted = true
+      
+      const attemptPlay = () => {
+        video.play().catch(() => {
+          console.log("Autoplay waiting for interaction")
+          // Backup: Play on first user interaction if autoplay was blocked
+          const playOnInteraction = () => {
+            video.play()
+            document.removeEventListener('click', playOnInteraction)
+            document.removeEventListener('touchstart', playOnInteraction)
+          }
+          document.addEventListener('click', playOnInteraction)
+          document.addEventListener('touchstart', playOnInteraction)
+        })
+      }
+
+      const timer = setTimeout(attemptPlay, 100)
+      return () => clearTimeout(timer)
+    }
+  }, [])
+
   return (
     <section className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden bg-black">
       {/* Cinematic Video Background */}
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
           poster="/assets/Swimming_Pool.jpeg"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
         >
